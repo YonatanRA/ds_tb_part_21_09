@@ -6,6 +6,6 @@ WIP
 
 ### 02-Data Analysis
 
-00_Numpy
+1.1 - Numpy
 
 
