@@ -2,10 +2,13 @@
 
 ### 01-Ramp-Up
 
-WIP
+00 - Linux
+01 - From Python to Anaconda
+02 - Python Programming
 
 ### 02-Data Analysis
 
-1.1 - Numpy
+00 - Numpy
+01 - Pandas
 
 
