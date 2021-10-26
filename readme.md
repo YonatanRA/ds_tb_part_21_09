@@ -10,8 +10,13 @@
 
 ### 02-Data Analysis
 
-+ 00 - Numpy
++ 00 - Repaso / GIT
 
-+ 01 - Pandas
++ 01 - Numpy
 
++ 02 - Pandas
+
++ 03 - Data Cleaning
+
++ 04 - Bases de datos / SQL
 
