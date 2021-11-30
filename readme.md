@@ -22,3 +22,5 @@
 
 + 05 - Extraccion de datos (APIs, RSS, scraping)
 
++ 06 - Estadística descriptiva / Visualización
+
