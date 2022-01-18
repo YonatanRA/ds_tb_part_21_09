@@ -24,3 +24,7 @@
 
 + 06 - Estadística descriptiva / Visualización
 
++ 07 - Repaso programacion
+
++ 08 - Probabilidad y Estadística 
+
