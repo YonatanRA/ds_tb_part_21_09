@@ -31,7 +31,7 @@ def removeStopwords(text):
     """
 	
 	stopw = nltk.corpus.stopwords.words('spanish')
-	stopw = stopw + ["juguete", "juguetes", "edad", "máxima", "recomendada", "incluye"]
+	stopw = stopw + ["juguete", "juguetes", "edad", "máxima", "recomendada", "incluye", "comprar"]
 	x = [w.strip() for w in text if w not in stopw]
 	return x
 
