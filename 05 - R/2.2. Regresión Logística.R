@@ -5,29 +5,49 @@ head(df)
 table(df$admit)
 
 # Modelo de regresión logística
-
+modelo <- glm(admit ~ gre+gpa+rank, data=df, family="binomial")
+summary(modelo)
 
 # Predicción
+x <- data.frame(gre=790,gpa=3.8,rank=1)
+predict(modelo, x, type='response')
 
 # Evaluar modelo
+prediccion_prob <- predict(modelo,df,type="response")
+summary(prediccion_prob)
 
+df$prediccion_prob <- prediccion_prob
 
 # Corte óptimo en las probabilidades
+install.packages("InformationValue")
+library(InformationValue)
+opt <- optimalCutoff(df$admit, prediccion_prob)
+opt
+
+df$predicted <- ifelse(df$prediccion_prob>=opt,1,0)
 
 # Matriz de confusión
+table(df$predicted,df$admit)
+confusionMatrix(df$admit, prediccion_prob, threshold=opt)
 
 # Accuracy
+1-misClassError(df$admit, prediccion_prob, threshold = opt)
 
 # Precision
+Precision <- precision(df$admit, prediccion_prob, threshold = opt)
+Precision
 
 # Recall
-
+Recall <- sensitivity(df$admit, prediccion_prob, threshold = opt)
+Recall
 
 # Specificity
+specificity(df$admit, prediccion_prob, threshold = opt)
 
 # F1 Score
+(2*Precision*Recall)/(Precision+Recall)
 
 # ROC
-
+plotROC(actuals=df$admit, predictedScores = df$prediccion_prob)
 
 
