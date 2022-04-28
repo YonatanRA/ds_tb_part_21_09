@@ -50,4 +50,19 @@ specificity(df$admit, prediccion_prob, threshold = opt)
 # ROC
 plotROC(actuals=df$admit, predictedScores = df$prediccion_prob)
 
+# Construir curva ROC
+ejex <- vector() # FPR
+ejey <- vector() # TPR
 
+for (opt in seq(from=0,to=1,by=0.001)){
+  ejex <- c(ejex,1-specificity(df$admit, prediccion_prob, threshold = opt))
+  ejey <- c(ejey,sensitivity(df$admit, prediccion_prob, threshold = opt))
+}
+
+plot(ejex,ejey,type="l",col="red",ylab="Sensitivity",
+     xlab="1-Specificity")
+abline(c(0,0),c(1,1))
+
+width = diff(c(0,1-ejey))
+auc <- sum((1-ejex)*width)
+auc
